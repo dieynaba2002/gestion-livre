@@ -1,0 +1,61 @@
+<app-header></app-header>
+<main class="main-content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Ma collection de livres</h1>
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Rechercher un livre...">
+                </div>
+                <select class="filter-select">
+                    <option value="">Toutes les catégories</option>
+                    <option value="ROMAN">Roman</option>
+                    <option value="NOUVELLE">Nouvelle</option>
+                    <option value="CHRONIQUE">Chronique</option>
+                    <option value="ESSAI">Essai</option>
+                    <option value="AUTRE">Autre</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="books-grid">
+            
+            <div class="book-card" *ngFor="let book of books">
+                <div class="book-image">
+                    <img [src]="getPhotoUrl(book.photoUrl)" alt="Livre">
+                    <div class="book-overlay">
+                        <button class="btn-icon edit" title="Modifier" (click)="editBook(book.id!)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon delete" title="Supprimer" (click)="deleteBook(book.id!)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-category roman" [ngClass]="getCategoryClass(book.category)">{{ book.category }}</span>
+                    <h3 class="book-title">{{ book.title }}</h3>
+                    <p class="book-author">{{ book.author }}</p>
+                    <p class="book-description">{{ book.description }}
+                       </p>
+                    <div class="book-meta">
+                        <span class="book-date">
+                            <i class="fas fa-calendar"></i>
+                            {{ getYear(book.published) }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="empty-state" style="display: none;">
+            <i class="fas fa-book-open"></i>
+            <h3>Aucun livre trouvé</h3>
+            <p>Commencez par ajouter votre premier livre à votre collection</p>
+            <a href="ajouter-livre.html" class="btn btn-primary">Ajouter un livre</a>
+        </div>
+    </div>
+</main>
+<app-footer></app-footer>

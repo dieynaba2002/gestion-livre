@@ -1,0 +1,28 @@
+<div class="container mt-4 px-0">
+    <div class="image-section">
+        <img src="assets/img/12772.jpg" alt="Chef with food">
+        <div class="overlay"></div>
+    </div>
+    <div class="form-section">
+        <div class="form-container">
+            <h1>Connexion</h1>
+            
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required [(ngModel)]="email">
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="Mot de passe" required [(ngModel)]="password">
+                </div>
+
+                <button type="submit" class="btn-login">Connexion</button>
+            </form>
+
+            <p class="signup-link">Avez-vous un compte? <a href="#">s'inscrire</a></p>
+        </div>
+    </div>
+    </div>

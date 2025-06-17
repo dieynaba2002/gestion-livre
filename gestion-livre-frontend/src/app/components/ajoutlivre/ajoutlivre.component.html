@@ -1,0 +1,113 @@
+<app-header></app-header>
+<main class="main-content mt-5 mb-5">
+    <div class="container">
+        <div class="form-container">
+            <!-- <div class="form-header">
+                <button class="back-btn" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour
+                </button>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary">Annuler</button>
+                    <button type="submit" form="book-form" class="btn btn-primary">
+                        Créer l'histoire
+                    </button>
+                </div>
+            </div> -->
+
+            <div class="form-content">
+                <!-- <div class="form-left">
+                    <div class="upload-area" (click)="triggerFileInput()">
+                        <div class="upload-placeholder" *ngIf="!previewUrl">
+                            <i class="fas fa-camera"></i>
+                            <p>Cliquer ici</p>
+                            <span>ou glisser et déposer</span>
+                            <small>JPG, PNG (max. 5MB)</small>
+                        </div>
+                
+                        <img *ngIf="previewUrl" [src]="previewUrl" alt="Aperçu" class="preview-image" />
+                
+                        <img *ngIf="!previewUrl && existingPhotoUrl" [src]="existingPhotoUrl" alt="Image actuelle" class="preview-image" />
+                        <input type="file" #fileInput id="photo-upload" accept="image/*" style="display: none;"
+                            (change)="onFileChange($event)">
+                    </div>
+                </div> -->
+                <div class="form-left">
+                    <div class="upload-area" (click)="triggerFileInput()">
+                        <!-- Zone d’instruction visible uniquement quand il n'y a pas d'image -->
+                        <div class="upload-placeholder" *ngIf="!previewUrl && !existingPhotoUrl">
+                            <i class="fas fa-camera"></i>
+                            <p>Cliquer ici</p>
+                            <span>ou glisser et déposer</span>
+                            <small>JPG, PNG (max. 5MB)</small>
+                        </div>
+                
+                        <!-- Image preview si sélectionnée -->
+                        <img *ngIf="previewUrl" [src]="previewUrl" alt="Aperçu" class="preview-image" />
+                
+                        <!-- Image existante (déjà enregistrée) -->
+                        <img *ngIf="!previewUrl && existingPhotoUrl" [src]="existingPhotoUrl" alt="Image actuelle"
+                            class="preview-image" />
+                
+                        <!-- Input masqué -->
+                        <input type="file" #fileInput id="photo-upload" accept="image/*" style="display: none;"
+                            (change)="onFileChange($event)" />
+                    </div>
+                </div>
+                  
+                  
+
+                <div class="form-right">
+                    <h1>Détails du livre</h1>
+
+                    <form id="book-form" class="book-form" (ngSubmit)="onSubmit()" #f="ngForm">
+                        <div class="form-group">
+                            <label for="title">Titre du livre</label>
+                            <input type="text" id="title" name="title" placeholder="Entrez le titre" required [(ngModel)]="title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author">Auteur</label>
+                            <input type="text" id="author" name="author" placeholder="Nom de l'auteur" required [(ngModel)]="author">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" [(ngModel)]="description" placeholder="Décrivez le livre..."
+                                rows="4"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Catégorie</label>
+                                <select id="category" name="category" required [(ngModel)]="category">
+                                    <option value="">Sélectionner une catégorie</option>
+                                    <option value="ROMAN">Roman</option>
+                                    <option value="NOUVELLE">Nouvelle</option>
+                                    <option value="CHRONIQUE">Chronique</option>
+                                    <option value="ESSAI">Essai</option>
+                                    <option value="AUTRE">Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="published">Date de publication</label>
+                                <input type="date" id="published" name="published" required [(ngModel)]="published">
+                            </div>
+                        </div>
+                        <div class="form-header">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary">Annuler</button>
+                                <button type="submit" form="book-form" class="btn btn-primary">
+                                    Créer l'histoire
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<app-footer></app-footer>
