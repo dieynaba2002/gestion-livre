@@ -43,8 +43,9 @@ npm install
 ```
 # Créer le fichier .env
 touch .env
-DATABASE_URL="mysql://user:password@localhost:3306/nom_de_ta_base"
-JWT_SECRET="ton_secret_jwt"
+DATABASE_URL="mysql://root:@localhost:3306/gestion_livre"
+SECRET_KEY="SECRET_KEY"
+OTP_CODE = "OTP_CODE"
 
 # Générer le client Prisma
 npx prisma generate
